@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEvolucionrendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_idEvolucionRendimiento}" for="idEvolucionRendimiento" />
+                    <h:inputText id="idEvolucionRendimiento" value="#{evolucionrendimientoController.selected.idEvolucionRendimiento}" title="#{bundle.EditEvolucionrendimientoTitle_idEvolucionRendimiento}" required="true" requiredMessage="#{bundle.EditEvolucionrendimientoRequiredMessage_idEvolucionRendimiento}"/>
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionIzAp}" for="evolucionIzAp" />
+                    <h:inputText id="evolucionIzAp" value="#{evolucionrendimientoController.selected.evolucionIzAp}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionIzAp}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDeAp}" for="evolucionDeAp" />
+                    <h:inputText id="evolucionDeAp" value="#{evolucionrendimientoController.selected.evolucionDeAp}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDeAp}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDeBandal}" for="evolucionDeBandal" />
+                    <h:inputText id="evolucionDeBandal" value="#{evolucionrendimientoController.selected.evolucionDeBandal}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDeBandal}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionIzBandal}" for="evolucionIzBandal" />
+                    <h:inputText id="evolucionIzBandal" value="#{evolucionrendimientoController.selected.evolucionIzBandal}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionIzBandal}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDobleBandal}" for="evolucionDobleBandal" />
+                    <h:inputText id="evolucionDobleBandal" value="#{evolucionrendimientoController.selected.evolucionDobleBandal}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDobleBandal}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDesplasamientoNerio}" for="evolucionDesplasamientoNerio" />
+                    <h:inputText id="evolucionDesplasamientoNerio" value="#{evolucionrendimientoController.selected.evolucionDesplasamientoNerio}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDesplasamientoNerio}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDesplasamientoFuryo}" for="evolucionDesplasamientoFuryo" />
+                    <h:inputText id="evolucionDesplasamientoFuryo" value="#{evolucionrendimientoController.selected.evolucionDesplasamientoFuryo}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDesplasamientoFuryo}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_evolucionDesplasamientoDolyo}" for="evolucionDesplasamientoDolyo" />
+                    <h:inputText id="evolucionDesplasamientoDolyo" value="#{evolucionrendimientoController.selected.evolucionDesplasamientoDolyo}" title="#{bundle.EditEvolucionrendimientoTitle_evolucionDesplasamientoDolyo}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_puntajeEvolucion}" for="puntajeEvolucion" />
+                    <h:inputText id="puntajeEvolucion" value="#{evolucionrendimientoController.selected.puntajeEvolucion}" title="#{bundle.EditEvolucionrendimientoTitle_puntajeEvolucion}" />
+                    <h:outputLabel value="#{bundle.EditEvolucionrendimientoLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{evolucionrendimientoController.selected.fecha}" title="#{bundle.EditEvolucionrendimientoTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{evolucionrendimientoController.update}" value="#{bundle.EditEvolucionrendimientoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEvolucionrendimientoViewLink}"/>
+                <br />
+                <h:commandLink action="#{evolucionrendimientoController.prepareList}" value="#{bundle.EditEvolucionrendimientoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEvolucionrendimientoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

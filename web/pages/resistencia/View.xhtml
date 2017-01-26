@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewResistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewResistenciaLabel_idResistencia}"/>
+                    <h:outputText value="#{resistenciaController.selected.idResistencia}" title="#{bundle.ViewResistenciaTitle_idResistencia}"/>
+                    <h:outputText value="#{bundle.ViewResistenciaLabel_tipo}"/>
+                    <h:outputText value="#{resistenciaController.selected.tipo}" title="#{bundle.ViewResistenciaTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewResistenciaLabel_tipodeCargaidTipodeCarga}"/>
+                    <h:outputText value="#{resistenciaController.selected.tipodeCargaidTipodeCarga}" title="#{bundle.ViewResistenciaTitle_tipodeCargaidTipodeCarga}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{resistenciaController.destroyAndView}" value="#{bundle.ViewResistenciaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewResistenciaEditLink}"/>
+                <br />
+                <h:commandLink action="#{resistenciaController.prepareCreate}" value="#{bundle.ViewResistenciaCreateLink}" />
+                <br />
+                <h:commandLink action="#{resistenciaController.prepareList}" value="#{bundle.ViewResistenciaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewResistenciaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

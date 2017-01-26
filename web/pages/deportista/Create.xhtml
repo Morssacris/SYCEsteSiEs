@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDeportistaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDeportistaLabel_idDeportista}" for="idDeportista" />
+                    <h:inputText id="idDeportista" value="#{deportistaController.selected.idDeportista}" title="#{bundle.CreateDeportistaTitle_idDeportista}" required="true" requiredMessage="#{bundle.CreateDeportistaRequiredMessage_idDeportista}"/>
+                    <h:outputLabel value="#{bundle.CreateDeportistaLabel_usuariosIdusuarios}" for="usuariosIdusuarios" />
+                    <h:selectOneMenu id="usuariosIdusuarios" value="#{deportistaController.selected.usuariosIdusuarios}" title="#{bundle.CreateDeportistaTitle_usuariosIdusuarios}" required="true" requiredMessage="#{bundle.CreateDeportistaRequiredMessage_usuariosIdusuarios}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDeportistaLabel_idGrado}" for="idGrado" />
+                    <h:selectOneMenu id="idGrado" value="#{deportistaController.selected.idGrado}" title="#{bundle.CreateDeportistaTitle_idGrado}" required="true" requiredMessage="#{bundle.CreateDeportistaRequiredMessage_idGrado}">
+                        <f:selectItems value="#{gradoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{deportistaController.create}" value="#{bundle.CreateDeportistaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{deportistaController.prepareList}" value="#{bundle.CreateDeportistaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDeportistaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

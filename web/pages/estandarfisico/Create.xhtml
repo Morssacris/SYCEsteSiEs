@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEstandarfisicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEstandarfisicoLabel_idEstandarFisico}" for="idEstandarFisico" />
+                    <h:inputText id="idEstandarFisico" value="#{estandarfisicoController.selected.idEstandarFisico}" title="#{bundle.CreateEstandarfisicoTitle_idEstandarFisico}" required="true" requiredMessage="#{bundle.CreateEstandarfisicoRequiredMessage_idEstandarFisico}"/>
+                    <h:outputLabel value="#{bundle.CreateEstandarfisicoLabel_masculinoidMasculinoEstadoBueno}" for="masculinoidMasculinoEstadoBueno" />
+                    <h:inputText id="masculinoidMasculinoEstadoBueno" value="#{estandarfisicoController.selected.masculinoidMasculinoEstadoBueno}" title="#{bundle.CreateEstandarfisicoTitle_masculinoidMasculinoEstadoBueno}" required="true" requiredMessage="#{bundle.CreateEstandarfisicoRequiredMessage_masculinoidMasculinoEstadoBueno}"/>
+                    <h:outputLabel value="#{bundle.CreateEstandarfisicoLabel_femeninoidMasculinoEstadoBueno}" for="femeninoidMasculinoEstadoBueno" />
+                    <h:inputText id="femeninoidMasculinoEstadoBueno" value="#{estandarfisicoController.selected.femeninoidMasculinoEstadoBueno}" title="#{bundle.CreateEstandarfisicoTitle_femeninoidMasculinoEstadoBueno}" required="true" requiredMessage="#{bundle.CreateEstandarfisicoRequiredMessage_femeninoidMasculinoEstadoBueno}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estandarfisicoController.create}" value="#{bundle.CreateEstandarfisicoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{estandarfisicoController.prepareList}" value="#{bundle.CreateEstandarfisicoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEstandarfisicoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

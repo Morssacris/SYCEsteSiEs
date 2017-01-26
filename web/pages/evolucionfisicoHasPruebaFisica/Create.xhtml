@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaLabel_evolucionfisicoHasPruebaFisicaPK_pruebaFisicaIdpruebaFisica}" for="evolucionfisicoHasPruebaFisicaPK_pruebaFisicaIdpruebaFisica" />
+                    <h:inputText id="evolucionfisicoHasPruebaFisicaPK_pruebaFisicaIdpruebaFisica" value="#{evolucionfisicoHasPruebaFisicaController.selected.evolucionfisicoHasPruebaFisicaPK.pruebaFisicaIdpruebaFisica}" title="#{bundle.CreateEvolucionfisicoHasPruebaFisicaTitle_evolucionfisicoHasPruebaFisicaPK_pruebaFisicaIdpruebaFisica}" required="true" requiredMessage="#{bundle.CreateEvolucionfisicoHasPruebaFisicaRequiredMessage_evolucionfisicoHasPruebaFisicaPK_pruebaFisicaIdpruebaFisica}"/>
+                    <h:outputLabel value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaLabel_evolucionfisicoHasPruebaFisicaPK_evolucionFisicoidEvolucionFisico}" for="evolucionfisicoHasPruebaFisicaPK_evolucionFisicoidEvolucionFisico" />
+                    <h:inputText id="evolucionfisicoHasPruebaFisicaPK_evolucionFisicoidEvolucionFisico" value="#{evolucionfisicoHasPruebaFisicaController.selected.evolucionfisicoHasPruebaFisicaPK.evolucionFisicoidEvolucionFisico}" title="#{bundle.CreateEvolucionfisicoHasPruebaFisicaTitle_evolucionfisicoHasPruebaFisicaPK_evolucionFisicoidEvolucionFisico}" required="true" requiredMessage="#{bundle.CreateEvolucionfisicoHasPruebaFisicaRequiredMessage_evolucionfisicoHasPruebaFisicaPK_evolucionFisicoidEvolucionFisico}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{evolucionfisicoHasPruebaFisicaController.create}" value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{evolucionfisicoHasPruebaFisicaController.prepareList}" value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEvolucionfisicoHasPruebaFisicaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

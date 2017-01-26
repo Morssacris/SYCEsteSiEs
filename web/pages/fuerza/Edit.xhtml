@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFuerzaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFuerzaLabel_idFuerza}" for="idFuerza" />
+                    <h:inputText id="idFuerza" value="#{fuerzaController.selected.idFuerza}" title="#{bundle.EditFuerzaTitle_idFuerza}" required="true" requiredMessage="#{bundle.EditFuerzaRequiredMessage_idFuerza}"/>
+                    <h:outputLabel value="#{bundle.EditFuerzaLabel_fuerzacol}" for="fuerzacol" />
+                    <h:inputText id="fuerzacol" value="#{fuerzaController.selected.fuerzacol}" title="#{bundle.EditFuerzaTitle_fuerzacol}" />
+                </h:panelGrid>
+                <h:commandLink action="#{fuerzaController.update}" value="#{bundle.EditFuerzaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFuerzaViewLink}"/>
+                <br />
+                <h:commandLink action="#{fuerzaController.prepareList}" value="#{bundle.EditFuerzaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFuerzaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

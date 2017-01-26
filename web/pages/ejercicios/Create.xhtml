@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEjerciciosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_ejerciciosPK_idejercicios}" for="ejerciciosPK_idejercicios" />
+                    <h:inputText id="ejerciciosPK_idejercicios" value="#{ejerciciosController.selected.ejerciciosPK.idejercicios}" title="#{bundle.CreateEjerciciosTitle_ejerciciosPK_idejercicios}" required="true" requiredMessage="#{bundle.CreateEjerciciosRequiredMessage_ejerciciosPK_idejercicios}"/>
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_ejercicio}" for="ejercicio" />
+                    <h:inputText id="ejercicio" value="#{ejerciciosController.selected.ejercicio}" title="#{bundle.CreateEjerciciosTitle_ejercicio}" />
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_repeticiones}" for="repeticiones" />
+                    <h:inputText id="repeticiones" value="#{ejerciciosController.selected.repeticiones}" title="#{bundle.CreateEjerciciosTitle_repeticiones}" />
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_series}" for="series" />
+                    <h:inputText id="series" value="#{ejerciciosController.selected.series}" title="#{bundle.CreateEjerciciosTitle_series}" />
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_tiempodeRecuperacion}" for="tiempodeRecuperacion" />
+                    <h:inputText id="tiempodeRecuperacion" value="#{ejerciciosController.selected.tiempodeRecuperacion}" title="#{bundle.CreateEjerciciosTitle_tiempodeRecuperacion}" />
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_duracion}" for="duracion" />
+                    <h:inputText id="duracion" value="#{ejerciciosController.selected.duracion}" title="#{bundle.CreateEjerciciosTitle_duracion}" />
+                    <h:outputLabel value="#{bundle.CreateEjerciciosLabel_fuerza}" for="fuerza" />
+                    <h:selectOneMenu id="fuerza" value="#{ejerciciosController.selected.fuerza}" title="#{bundle.CreateEjerciciosTitle_fuerza}" required="true" requiredMessage="#{bundle.CreateEjerciciosRequiredMessage_fuerza}">
+                        <f:selectItems value="#{fuerzaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ejerciciosController.create}" value="#{bundle.CreateEjerciciosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ejerciciosController.prepareList}" value="#{bundle.CreateEjerciciosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEjerciciosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

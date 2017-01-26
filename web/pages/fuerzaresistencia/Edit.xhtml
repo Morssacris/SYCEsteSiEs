@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFuerzaresistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFuerzaresistenciaLabel_idFuerzaResistencia}" for="idFuerzaResistencia" />
+                    <h:inputText id="idFuerzaResistencia" value="#{fuerzaresistenciaController.selected.idFuerzaResistencia}" title="#{bundle.EditFuerzaresistenciaTitle_idFuerzaResistencia}" required="true" requiredMessage="#{bundle.EditFuerzaresistenciaRequiredMessage_idFuerzaResistencia}"/>
+                    <h:outputLabel value="#{bundle.EditFuerzaresistenciaLabel_circuito}" for="circuito" />
+                    <h:inputText id="circuito" value="#{fuerzaresistenciaController.selected.circuito}" title="#{bundle.EditFuerzaresistenciaTitle_circuito}" />
+                    <h:outputLabel value="#{bundle.EditFuerzaresistenciaLabel_tecnica}" for="tecnica" />
+                    <h:inputText id="tecnica" value="#{fuerzaresistenciaController.selected.tecnica}" title="#{bundle.EditFuerzaresistenciaTitle_tecnica}" />
+                    <h:outputLabel value="#{bundle.EditFuerzaresistenciaLabel_fuerzaidFuerza}" for="fuerzaidFuerza" />
+                    <h:inputText id="fuerzaidFuerza" value="#{fuerzaresistenciaController.selected.fuerzaidFuerza}" title="#{bundle.EditFuerzaresistenciaTitle_fuerzaidFuerza}" required="true" requiredMessage="#{bundle.EditFuerzaresistenciaRequiredMessage_fuerzaidFuerza}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{fuerzaresistenciaController.update}" value="#{bundle.EditFuerzaresistenciaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFuerzaresistenciaViewLink}"/>
+                <br />
+                <h:commandLink action="#{fuerzaresistenciaController.prepareList}" value="#{bundle.EditFuerzaresistenciaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFuerzaresistenciaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPruebaRendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_id}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.id}" title="#{bundle.ViewPruebaRendimientoTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadIZAP}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadIZAP}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadIZAP}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDEAP}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDEAP}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDEAP}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadIZbandal}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadIZbandal}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadIZbandal}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDEbandal}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDEbandal}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDEbandal}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDEdoblebandal}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDEdoblebandal}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDEdoblebandal}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDespNerio}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDespNerio}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDespNerio}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDesFuryo}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDesFuryo}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDesFuryo}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_cantidadDesDolio}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.cantidadDesDolio}" title="#{bundle.ViewPruebaRendimientoTitle_cantidadDesDolio}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_puntaje}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.puntaje}" title="#{bundle.ViewPruebaRendimientoTitle_puntaje}"/>
+                    <h:outputText value="#{bundle.ViewPruebaRendimientoLabel_fecha}"/>
+                    <h:outputText value="#{pruebaRendimientoController.selected.fecha}" title="#{bundle.ViewPruebaRendimientoTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pruebaRendimientoController.destroyAndView}" value="#{bundle.ViewPruebaRendimientoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPruebaRendimientoEditLink}"/>
+                <br />
+                <h:commandLink action="#{pruebaRendimientoController.prepareCreate}" value="#{bundle.ViewPruebaRendimientoCreateLink}" />
+                <br />
+                <h:commandLink action="#{pruebaRendimientoController.prepareList}" value="#{bundle.ViewPruebaRendimientoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPruebaRendimientoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

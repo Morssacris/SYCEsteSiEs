@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Inicio SYC</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <b:container style="background-color: whitesmoke">
+
+            <b:navBar brand="SYC" brandHref="#">  
+                <b:image library="img" name="fudam.png" width="80px" tooltip="SYC Sistema de Informacion"/>
+                <!--                <b:navbarLinks>
+                                    
+                                 
+                                    <b:dropMenu value="Dropdown" iconAwesome="birthday-cake">
+                                        <b:navLink value="Action" href="#"></b:navLink>
+                                        <b:navLink value="Another action" href="#"></b:navLink>
+                                        <b:navLink value="Something else here" href="#"></b:navLink>
+                                        <b:navLink></b:navLink>
+                                        <b:navLink header="Nav header"></b:navLink>
+                                        <b:navLink value="Separated link" href="#"></b:navLink>
+                                        <b:dropMenu value="Nested submenu" iconAwesome="birthday-cake" iconAlign="right">
+                                            <b:navLink value="You can nest menus" href="#"></b:navLink>
+                                            <b:dropMenu value="Nested sub-submenu">
+                                                <b:navLink value="... as deep as ..." href="#"></b:navLink>
+                                                <b:dropMenu value="Nested sub-sub-submenu">
+                                                    <b:navLink value="... you want!" href="#"></b:navLink>
+                                                </b:dropMenu>
+                                            </b:dropMenu>
+                
+                                        </b:dropMenu>
+                                        <b:navLink value="One more separated link" href="#"></b:navLink>
+                                    </b:dropMenu>
+                                </b:navbarLinks>-->
+
+                <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+                <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+                <b:navbarLinks pull="right" styleClass="hidden-xs">
+                    <b:navLink value="Mision y Vision" href="#"></b:navLink>
+                    <b:dropMenu value="Opciones">
+                        <b:navLink value="Iniciar Sesion" href="#" onclick="$('.modalPseudoClass').modal();return false;"></b:navLink>
+                        <b:navLink></b:navLink>
+                        <b:navLink value="Contactenos" href="#"></b:navLink>                    
+                    </b:dropMenu>
+                </b:navbarLinks>
+            </b:navBar> 
+            <b:form>
+
+                <b:carousel id="tiovivo" style="alignment-adjust: auto" interval="2500">
+
+                    <b:carouselItem caption="Valladolid has a nice central park.">
+                        <img src="resources/img/Carrousel/Fitness-and-Health.png" alt="Valladolid" style="width: 1139px;height: 370px " />
+                    </b:carouselItem>
+                    <b:carouselItem caption="Ain't he a beauty?">
+                        <img src="resources/img/Carrousel/fitness-girl-one-hand-push-up-wide.png" alt="Valladolid" style="width: 1139px;height: 370px " />
+                    </b:carouselItem>
+                    <b:carouselItem>
+                        <img src="resources/img/Carrousel/fitness-wallpaper-latest-images.png" alt="Valladolid" style="width: 1139px;height: 370px " />
+                        <b:carouselCaption>
+                            <h3>Fountains</h3>
+                            <p>In Spain, dry as it is, people love to play with water.</p>
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem caption="Valladolid - a city with a lot of history">
+                        <img src="resources/img/Carrousel/fondo.png" alt="Valladolid" style="width: 1139px;height: 370px" />
+                    </b:carouselItem>
+                </b:carousel>
+            </b:form>
+            <br/>
+            <br/>
+
+            <b:row>
+                <b:column col-sm="6" col-md="4">
+                    <b:thumbnail>
+                        <img src="resources/img/deportistas1/4.jpg" alt="Generic placeholder thumbnail" style="width: 400px;height: 310px"/>
+                        <f:facet name="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p>
+                                <b:button look="primary" value="Button"/>
+                                <b:button value="Button"/>
+                            </p>
+                        </f:facet>
+                    </b:thumbnail>
+                </b:column>
+                <b:column col-sm="6" col-md="4">
+                    <b:thumbnail>
+                        <img src="resources/img/TAEKWONDO SUCURSAL MIRADOR CINTAS 2.jpg" alt="Generic placeholder thumbnail" style="width: 400px;height: 310px"/>
+                        <f:facet name="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p>
+                                <b:button look="primary" value="Button"/>
+                                <b:button value="Button"/>
+                            </p>
+                        </f:facet>
+                    </b:thumbnail>
+                </b:column>
+                <b:column col-sm="6" col-md="4">
+                    <b:thumbnail style="alignment-adjust: auto">
+                        <img src="resources/img/corporativa/Poomsae_1_original.jpg" alt="Generic placeholder thumbnail" style="width: 400px;height: 310px"/>
+                        <f:facet name="caption">
+                            <h3>El mono es Una loka</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec666666666666666600 id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p>
+                                <b:button look="primary" value="Button"/>
+                                <b:button look="warning" value="Button"/>
+                            </p>
+                        </f:facet>
+                    </b:thumbnail>
+                </b:column>
+
+
+            </b:row>
+
+
+
+            <footer style="background-color: #e33b06">
+
+
+                <div class="copy text-center">
+                    Copyright 2016 <a href='#'><h4>SYC Sitema de Gestion de Entrenamientos</h4></a>
+                </div>
+
+
+            </footer>
+
+        </b:container>
+
+
+
+
+
+        <b:modal id="amodal" title="Iniciar Sesion" styleClass="modalPseudoClass"
+                 closable="false" close-on-escape="false" backdrop="false">
+            <b:form>
+
+                <b:panelGrid columns="2">
+
+
+
+                    <b:inputText label="Ingrese nombre de usuario" id="nomUsuario" value="#{loginController.nomUsuario}" required="true" requiredMessage="#{bundle.IngresoNombre}"/>
+                    <b:inputSecret label="Ingrese su clave" id="claUsuario" value="#{loginController.clave}" required="true" requiredMessage="#{bundle.IngresoClave}" />
+                    <b:commandButton value="Ingresar" look="primary" actionListener="#{loginController.iniciar}"/>
+                    <b:commandButton value="Cerrar" look="danger" action="/index.xhtml" />
+                </b:panelGrid>
+            </b:form>
+            <f:facet name="footer">
+                
+ <h:messages/>
+            </f:facet>
+
+        </b:modal>
+        <br />
+        <b:form>
+            <h:link outcome="/pages/deportista/List" value="Show All Deportista Items"/>
+            <br />
+            <h:link outcome="/pages/ejeciciovelocidad/List" value="Show All Ejeciciovelocidad Items"/>
+            <br />
+            <h:link outcome="/pages/ejercicioresistencia/List" value="Show All Ejercicioresistencia Items"/>
+            <br />
+            <h:link outcome="/pages/ejercicios/List" value="Show All Ejercicios Items"/>
+            <br />
+            <h:link outcome="/pages/entrenamientos/List" value="Show All Entrenamientos Items"/>
+            <br />
+            <h:link outcome="/pages/estandarfisico/List" value="Show All Estandarfisico Items"/>
+            <br />
+            <h:link outcome="/pages/estandarrendimiento/List" value="Show All Estandarrendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/evolucionfisico/List" value="Show All Evolucionfisico Items"/>
+            <br />
+            <h:link outcome="/pages/evolucionfisicoHasPruebaFisica/List" value="Show All EvolucionfisicoHasPruebaFisica Items"/>
+            <br />
+            <h:link outcome="/pages/evolucionrendimiento/List" value="Show All Evolucionrendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/evolucionrendimientoHasPruebaRendimiento/List" value="Show All EvolucionrendimientoHasPruebaRendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/femenino/List" value="Show All Femenino Items"/>
+            <br />
+            <h:link outcome="/pages/fuerza/List" value="Show All Fuerza Items"/>
+            <br />
+            <h:link outcome="/pages/fuerzaexplosiva/List" value="Show All Fuerzaexplosiva Items"/>
+            <br />
+            <h:link outcome="/pages/fuerzamaxima/List" value="Show All Fuerzamaxima Items"/>
+            <br />
+            <h:link outcome="/pages/fuerzaresistencia/List" value="Show All Fuerzaresistencia Items"/>
+            <br />
+            <h:link outcome="/pages/grado/List" value="Show All Grado Items"/>
+            <br />
+            <h:link outcome="/pages/intervenccionpre/List" value="Show All Intervenccionpre Items"/>
+            <br />
+            <h:link outcome="/pages/masculino/List" value="Show All Masculino Items"/>
+            <br />
+            <h:link outcome="/pages/permisos/List" value="Show All Permisos Items"/>
+            <br />
+            <h:link outcome="/pages/pruebaFisica/List" value="Show All PruebaFisica Items"/>
+            <br />
+            <h:link outcome="/pages/pruebaFisicaHasRendimiento/List" value="Show All PruebaFisicaHasRendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/pruebaRendimiento/List" value="Show All PruebaRendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/pruebafisica_1/List" value="Show All Pruebafisica_1 Items"/>
+            <br />
+            <h:link outcome="/pages/pruebarendimiento_1/List" value="Show All Pruebarendimiento_1 Items"/>
+            <br />
+            <h:link outcome="/pages/rendimiento/List" value="Show All Rendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/rendimientoHasDeportista/List" value="Show All RendimientoHasDeportista Items"/>
+            <br />
+            <h:link outcome="/pages/rendimientoHasPruebaRendimiento/List" value="Show All RendimientoHasPruebaRendimiento Items"/>
+            <br />
+            <h:link outcome="/pages/resistencia/List" value="Show All Resistencia Items"/>
+            <br />
+            <h:link outcome="/pages/roles/List" value="Show All Roles Items"/>
+            <br />
+            <h:link outcome="/pages/rolesHasPermisos/List" value="Show All RolesHasPermisos Items"/>
+            <br />
+            <h:link outcome="/pages/tipoDeCarga/List" value="Show All TipoDeCarga Items"/>
+            <br />
+            <h:link outcome="/pages/trabajoabdominales/List" value="Show All Trabajoabdominales Items"/>
+            <br />
+            <h:link outcome="/pages/trabajobrazos/List" value="Show All Trabajobrazos Items"/>
+            <br />
+            <h:link outcome="/pages/trabajopectorales/List" value="Show All Trabajopectorales Items"/>
+            <br />
+            <h:link outcome="/pages/trabajopiernas/List" value="Show All Trabajopiernas Items"/>
+            <br />
+            <h:link outcome="/pages/usuarios/List" value="Show All Usuarios Items"/>
+            <br />
+            <h:link outcome="/pages/velocidad/List" value="Show All Velocidad Items"/>
+        </b:form>
+    </h:body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+

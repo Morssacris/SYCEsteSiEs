@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTipoDeCargaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTipoDeCargaEmpty}" rendered="#{tipoDeCargaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tipoDeCargaController.items.rowCount > 0}">
+                    <h:outputText value="#{tipoDeCargaController.pagination.pageFirstItem + 1}..#{tipoDeCargaController.pagination.pageLastItem + 1}/#{tipoDeCargaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tipoDeCargaController.previous}" value="#{bundle.Previous} #{tipoDeCargaController.pagination.pageSize}" rendered="#{tipoDeCargaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tipoDeCargaController.next}" value="#{bundle.Next} #{tipoDeCargaController.pagination.pageSize}" rendered="#{tipoDeCargaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tipoDeCargaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoDeCargaTitle_idTipodeCarga}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTipodeCarga}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoDeCargaTitle_tipodecarga}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipodecarga}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoDeCargaTitle_intervenccionPreidIntervenccionPre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.intervenccionPreidIntervenccionPre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tipoDeCargaController.prepareView}" value="#{bundle.ListTipoDeCargaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoDeCargaController.prepareEdit}" value="#{bundle.ListTipoDeCargaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoDeCargaController.destroy}" value="#{bundle.ListTipoDeCargaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tipoDeCargaController.prepareCreate}" value="#{bundle.ListTipoDeCargaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTipoDeCargaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

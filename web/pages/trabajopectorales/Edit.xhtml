@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTrabajopectoralesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTrabajopectoralesLabel_idTrabajoPectorales}" for="idTrabajoPectorales" />
+                    <h:inputText id="idTrabajoPectorales" value="#{trabajopectoralesController.selected.idTrabajoPectorales}" title="#{bundle.EditTrabajopectoralesTitle_idTrabajoPectorales}" required="true" requiredMessage="#{bundle.EditTrabajopectoralesRequiredMessage_idTrabajoPectorales}"/>
+                    <h:outputLabel value="#{bundle.EditTrabajopectoralesLabel_ejerciciosIdejercicios}" for="ejerciciosIdejercicios" />
+                    <h:inputText id="ejerciciosIdejercicios" value="#{trabajopectoralesController.selected.ejerciciosIdejercicios}" title="#{bundle.EditTrabajopectoralesTitle_ejerciciosIdejercicios}" required="true" requiredMessage="#{bundle.EditTrabajopectoralesRequiredMessage_ejerciciosIdejercicios}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{trabajopectoralesController.update}" value="#{bundle.EditTrabajopectoralesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTrabajopectoralesViewLink}"/>
+                <br />
+                <h:commandLink action="#{trabajopectoralesController.prepareList}" value="#{bundle.EditTrabajopectoralesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTrabajopectoralesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

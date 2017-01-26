@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewVelocidadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewVelocidadLabel_idVelocidad}"/>
+                    <h:outputText value="#{velocidadController.selected.idVelocidad}" title="#{bundle.ViewVelocidadTitle_idVelocidad}"/>
+                    <h:outputText value="#{bundle.ViewVelocidadLabel_tipo}"/>
+                    <h:outputText value="#{velocidadController.selected.tipo}" title="#{bundle.ViewVelocidadTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewVelocidadLabel_ejecicioVelocidadidEjecicioVelocidad}"/>
+                    <h:outputText value="#{velocidadController.selected.ejecicioVelocidadidEjecicioVelocidad}" title="#{bundle.ViewVelocidadTitle_ejecicioVelocidadidEjecicioVelocidad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{velocidadController.destroyAndView}" value="#{bundle.ViewVelocidadDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewVelocidadEditLink}"/>
+                <br />
+                <h:commandLink action="#{velocidadController.prepareCreate}" value="#{bundle.ViewVelocidadCreateLink}" />
+                <br />
+                <h:commandLink action="#{velocidadController.prepareList}" value="#{bundle.ViewVelocidadShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewVelocidadIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

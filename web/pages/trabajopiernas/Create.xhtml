@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTrabajopiernasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTrabajopiernasLabel_idTrabajoPiernas}" for="idTrabajoPiernas" />
+                    <h:inputText id="idTrabajoPiernas" value="#{trabajopiernasController.selected.idTrabajoPiernas}" title="#{bundle.CreateTrabajopiernasTitle_idTrabajoPiernas}" required="true" requiredMessage="#{bundle.CreateTrabajopiernasRequiredMessage_idTrabajoPiernas}"/>
+                    <h:outputLabel value="#{bundle.CreateTrabajopiernasLabel_ejerciciosIdejercicios}" for="ejerciciosIdejercicios" />
+                    <h:inputText id="ejerciciosIdejercicios" value="#{trabajopiernasController.selected.ejerciciosIdejercicios}" title="#{bundle.CreateTrabajopiernasTitle_ejerciciosIdejercicios}" required="true" requiredMessage="#{bundle.CreateTrabajopiernasRequiredMessage_ejerciciosIdejercicios}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{trabajopiernasController.create}" value="#{bundle.CreateTrabajopiernasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{trabajopiernasController.prepareList}" value="#{bundle.CreateTrabajopiernasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTrabajopiernasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

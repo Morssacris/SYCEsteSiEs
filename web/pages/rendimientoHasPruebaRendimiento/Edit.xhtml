@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRendimientoHasPruebaRendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRendimientoHasPruebaRendimientoLabel_rendimientoHasPruebaRendimientoPK_rendimientoIdrendimiento}" for="rendimientoHasPruebaRendimientoPK_rendimientoIdrendimiento" />
+                    <h:inputText id="rendimientoHasPruebaRendimientoPK_rendimientoIdrendimiento" value="#{rendimientoHasPruebaRendimientoController.selected.rendimientoHasPruebaRendimientoPK.rendimientoIdrendimiento}" title="#{bundle.EditRendimientoHasPruebaRendimientoTitle_rendimientoHasPruebaRendimientoPK_rendimientoIdrendimiento}" required="true" requiredMessage="#{bundle.EditRendimientoHasPruebaRendimientoRequiredMessage_rendimientoHasPruebaRendimientoPK_rendimientoIdrendimiento}"/>
+                    <h:outputLabel value="#{bundle.EditRendimientoHasPruebaRendimientoLabel_rendimientoHasPruebaRendimientoPK_pruebaRendimientoId}" for="rendimientoHasPruebaRendimientoPK_pruebaRendimientoId" />
+                    <h:inputText id="rendimientoHasPruebaRendimientoPK_pruebaRendimientoId" value="#{rendimientoHasPruebaRendimientoController.selected.rendimientoHasPruebaRendimientoPK.pruebaRendimientoId}" title="#{bundle.EditRendimientoHasPruebaRendimientoTitle_rendimientoHasPruebaRendimientoPK_pruebaRendimientoId}" required="true" requiredMessage="#{bundle.EditRendimientoHasPruebaRendimientoRequiredMessage_rendimientoHasPruebaRendimientoPK_pruebaRendimientoId}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{rendimientoHasPruebaRendimientoController.update}" value="#{bundle.EditRendimientoHasPruebaRendimientoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRendimientoHasPruebaRendimientoViewLink}"/>
+                <br />
+                <h:commandLink action="#{rendimientoHasPruebaRendimientoController.prepareList}" value="#{bundle.EditRendimientoHasPruebaRendimientoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRendimientoHasPruebaRendimientoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

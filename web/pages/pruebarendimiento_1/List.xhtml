@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPruebarendimiento_1Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPruebarendimiento_1Empty}" rendered="#{pruebarendimiento_1Controller.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pruebarendimiento_1Controller.items.rowCount > 0}">
+                    <h:outputText value="#{pruebarendimiento_1Controller.pagination.pageFirstItem + 1}..#{pruebarendimiento_1Controller.pagination.pageLastItem + 1}/#{pruebarendimiento_1Controller.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pruebarendimiento_1Controller.previous}" value="#{bundle.Previous} #{pruebarendimiento_1Controller.pagination.pageSize}" rendered="#{pruebarendimiento_1Controller.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pruebarendimiento_1Controller.next}" value="#{bundle.Next} #{pruebarendimiento_1Controller.pagination.pageSize}" rendered="#{pruebarendimiento_1Controller.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pruebarendimiento_1Controller.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadIZAP}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadIZAP}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDEAP}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDEAP}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadIZbandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadIZbandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDEbandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDEbandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDEdoblebandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDEdoblebandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDespNerio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDespNerio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDesFuryo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDesFuryo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_cantidadDesDolio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDesDolio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_puntaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebarendimiento_1Title_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pruebarendimiento_1Controller.prepareView}" value="#{bundle.ListPruebarendimiento_1ViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pruebarendimiento_1Controller.prepareEdit}" value="#{bundle.ListPruebarendimiento_1EditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pruebarendimiento_1Controller.destroy}" value="#{bundle.ListPruebarendimiento_1DestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pruebarendimiento_1Controller.prepareCreate}" value="#{bundle.ListPruebarendimiento_1CreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPruebarendimiento_1IndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

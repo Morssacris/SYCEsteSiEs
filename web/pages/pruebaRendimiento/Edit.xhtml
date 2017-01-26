@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPruebaRendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{pruebaRendimientoController.selected.id}" title="#{bundle.EditPruebaRendimientoTitle_id}" required="true" requiredMessage="#{bundle.EditPruebaRendimientoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadIZAP}" for="cantidadIZAP" />
+                    <h:inputText id="cantidadIZAP" value="#{pruebaRendimientoController.selected.cantidadIZAP}" title="#{bundle.EditPruebaRendimientoTitle_cantidadIZAP}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDEAP}" for="cantidadDEAP" />
+                    <h:inputText id="cantidadDEAP" value="#{pruebaRendimientoController.selected.cantidadDEAP}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDEAP}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadIZbandal}" for="cantidadIZbandal" />
+                    <h:inputText id="cantidadIZbandal" value="#{pruebaRendimientoController.selected.cantidadIZbandal}" title="#{bundle.EditPruebaRendimientoTitle_cantidadIZbandal}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDEbandal}" for="cantidadDEbandal" />
+                    <h:inputText id="cantidadDEbandal" value="#{pruebaRendimientoController.selected.cantidadDEbandal}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDEbandal}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDEdoblebandal}" for="cantidadDEdoblebandal" />
+                    <h:inputText id="cantidadDEdoblebandal" value="#{pruebaRendimientoController.selected.cantidadDEdoblebandal}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDEdoblebandal}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDespNerio}" for="cantidadDespNerio" />
+                    <h:inputText id="cantidadDespNerio" value="#{pruebaRendimientoController.selected.cantidadDespNerio}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDespNerio}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDesFuryo}" for="cantidadDesFuryo" />
+                    <h:inputText id="cantidadDesFuryo" value="#{pruebaRendimientoController.selected.cantidadDesFuryo}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDesFuryo}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_cantidadDesDolio}" for="cantidadDesDolio" />
+                    <h:inputText id="cantidadDesDolio" value="#{pruebaRendimientoController.selected.cantidadDesDolio}" title="#{bundle.EditPruebaRendimientoTitle_cantidadDesDolio}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_puntaje}" for="puntaje" />
+                    <h:inputText id="puntaje" value="#{pruebaRendimientoController.selected.puntaje}" title="#{bundle.EditPruebaRendimientoTitle_puntaje}" />
+                    <h:outputLabel value="#{bundle.EditPruebaRendimientoLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{pruebaRendimientoController.selected.fecha}" title="#{bundle.EditPruebaRendimientoTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{pruebaRendimientoController.update}" value="#{bundle.EditPruebaRendimientoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPruebaRendimientoViewLink}"/>
+                <br />
+                <h:commandLink action="#{pruebaRendimientoController.prepareList}" value="#{bundle.EditPruebaRendimientoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPruebaRendimientoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

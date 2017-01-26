@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEvolucionfisicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEvolucionfisicoEmpty}" rendered="#{evolucionfisicoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{evolucionfisicoController.items.rowCount > 0}">
+                    <h:outputText value="#{evolucionfisicoController.pagination.pageFirstItem + 1}..#{evolucionfisicoController.pagination.pageLastItem + 1}/#{evolucionfisicoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{evolucionfisicoController.previous}" value="#{bundle.Previous} #{evolucionfisicoController.pagination.pageSize}" rendered="#{evolucionfisicoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{evolucionfisicoController.next}" value="#{bundle.Next} #{evolucionfisicoController.pagination.pageSize}" rendered="#{evolucionfisicoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{evolucionfisicoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_idEvolucionFisico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEvolucionFisico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionTiempoMetros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionTiempoMetros}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionCantidadAbdominales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionCantidadAbdominales}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionCantidadFlexiones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionCantidadFlexiones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionCantidadBarras}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionCantidadBarras}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionCantidadSentadillas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionCantidadSentadillas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionAlturaSalto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionAlturaSalto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_evolucionPuntaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionPuntaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionfisicoTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{evolucionfisicoController.prepareView}" value="#{bundle.ListEvolucionfisicoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evolucionfisicoController.prepareEdit}" value="#{bundle.ListEvolucionfisicoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evolucionfisicoController.destroy}" value="#{bundle.ListEvolucionfisicoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{evolucionfisicoController.prepareCreate}" value="#{bundle.ListEvolucionfisicoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEvolucionfisicoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

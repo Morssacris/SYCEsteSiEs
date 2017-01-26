@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRolesHasPermisosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRolesHasPermisosLabel_rolesHasPermisosPK_rolesIdroles}" for="rolesHasPermisosPK_rolesIdroles" />
+                    <h:inputText id="rolesHasPermisosPK_rolesIdroles" value="#{rolesHasPermisosController.selected.rolesHasPermisosPK.rolesIdroles}" title="#{bundle.CreateRolesHasPermisosTitle_rolesHasPermisosPK_rolesIdroles}" required="true" requiredMessage="#{bundle.CreateRolesHasPermisosRequiredMessage_rolesHasPermisosPK_rolesIdroles}"/>
+                    <h:outputLabel value="#{bundle.CreateRolesHasPermisosLabel_rolesHasPermisosPK_permisosidPermisos}" for="rolesHasPermisosPK_permisosidPermisos" />
+                    <h:inputText id="rolesHasPermisosPK_permisosidPermisos" value="#{rolesHasPermisosController.selected.rolesHasPermisosPK.permisosidPermisos}" title="#{bundle.CreateRolesHasPermisosTitle_rolesHasPermisosPK_permisosidPermisos}" required="true" requiredMessage="#{bundle.CreateRolesHasPermisosRequiredMessage_rolesHasPermisosPK_permisosidPermisos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rolesHasPermisosController.create}" value="#{bundle.CreateRolesHasPermisosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{rolesHasPermisosController.prepareList}" value="#{bundle.CreateRolesHasPermisosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRolesHasPermisosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

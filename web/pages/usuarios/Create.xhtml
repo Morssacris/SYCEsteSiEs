@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <b:form style="margin-top: 35px">
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" styleClass="ui-panelgrid-blank">
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_idusuarios}" for="idusuarios" />
+                    <p:inputText id="idusuarios" value="#{usuariosController.selected.idusuarios}" title="#{bundle.CreateUsuariosTitle_idusuarios}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_idusuarios}"/>
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_nombre}" for="nombre" />
+                    <p:inputText id="nombre" value="#{usuariosController.selected.nombre}" title="#{bundle.CreateUsuariosTitle_nombre}" />
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_apellido}" for="apellido" />
+                    <p:inputText id="apellido" value="#{usuariosController.selected.apellido}" title="#{bundle.CreateUsuariosTitle_apellido}" />
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_documento}" for="documento" />
+                    <p:inputText id="documento" value="#{usuariosController.selected.documento}" title="#{bundle.CreateUsuariosTitle_documento}" />
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_fecha}" for="fecha" />
+                    <p:inputText id="fecha" value="#{usuariosController.selected.fecha}" title="#{bundle.CreateUsuariosTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:inputText>
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_rolesIdroles}" for="rolesIdroles" />
+                    <p:inputText id="rolesIdroles" value="#{usuariosController.selected.rolesIdroles}" title="#{bundle.CreateUsuariosTitle_rolesIdroles}" />
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_nombreUsuario}" for="nombreUsuario" />
+                    <p:inputText id="nombreUsuario" value="#{usuariosController.selected.nombreUsuario}" title="#{bundle.CreateUsuariosTitle_nombreUsuario}" />
+                    <p:outputLabel value="#{bundle.CreateUsuariosLabel_clave}" for="clave" />
+                    <p:inputText id="clave" value="#{usuariosController.selected.clave}" title="#{bundle.CreateUsuariosTitle_clave}" />
+                </p:panelGrid>
+                <br />
+                <p:commandLink style="font-family: monospace;margin-left: 150px" action="#{usuariosController.create}" value="#{bundle.CreateUsuariosSaveLink}"/>
+                <br />
+                <br />
+                <p:commandLink style="font-family: monospace;margin-left: 90px" action="#{usuariosController.prepareList}" value="#{bundle.CreateUsuariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+            </b:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

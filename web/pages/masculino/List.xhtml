@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMasculinoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMasculinoEmpty}" rendered="#{masculinoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{masculinoController.items.rowCount > 0}">
+                    <h:outputText value="#{masculinoController.pagination.pageFirstItem + 1}..#{masculinoController.pagination.pageLastItem + 1}/#{masculinoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{masculinoController.previous}" value="#{bundle.Previous} #{masculinoController.pagination.pageSize}" rendered="#{masculinoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{masculinoController.next}" value="#{bundle.Next} #{masculinoController.pagination.pageSize}" rendered="#{masculinoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{masculinoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_idMasculinoEstadoBueno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMasculinoEstadoBueno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_prueba}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prueba}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_puntajeMuyBueno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntajeMuyBueno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_puntajeBueno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntajeBueno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_puntajeRegular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntajeRegular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMasculinoTitle_desdeEdad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.desdeEdad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{masculinoController.prepareView}" value="#{bundle.ListMasculinoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{masculinoController.prepareEdit}" value="#{bundle.ListMasculinoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{masculinoController.destroy}" value="#{bundle.ListMasculinoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{masculinoController.prepareCreate}" value="#{bundle.ListMasculinoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMasculinoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

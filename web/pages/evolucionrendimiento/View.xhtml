@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEvolucionrendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_idEvolucionRendimiento}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.idEvolucionRendimiento}" title="#{bundle.ViewEvolucionrendimientoTitle_idEvolucionRendimiento}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionIzAp}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionIzAp}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionIzAp}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDeAp}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDeAp}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDeAp}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDeBandal}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDeBandal}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDeBandal}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionIzBandal}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionIzBandal}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionIzBandal}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDobleBandal}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDobleBandal}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDobleBandal}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDesplasamientoNerio}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDesplasamientoNerio}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDesplasamientoNerio}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDesplasamientoFuryo}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDesplasamientoFuryo}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDesplasamientoFuryo}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_evolucionDesplasamientoDolyo}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.evolucionDesplasamientoDolyo}" title="#{bundle.ViewEvolucionrendimientoTitle_evolucionDesplasamientoDolyo}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_puntajeEvolucion}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.puntajeEvolucion}" title="#{bundle.ViewEvolucionrendimientoTitle_puntajeEvolucion}"/>
+                    <h:outputText value="#{bundle.ViewEvolucionrendimientoLabel_fecha}"/>
+                    <h:outputText value="#{evolucionrendimientoController.selected.fecha}" title="#{bundle.ViewEvolucionrendimientoTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{evolucionrendimientoController.destroyAndView}" value="#{bundle.ViewEvolucionrendimientoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEvolucionrendimientoEditLink}"/>
+                <br />
+                <h:commandLink action="#{evolucionrendimientoController.prepareCreate}" value="#{bundle.ViewEvolucionrendimientoCreateLink}" />
+                <br />
+                <h:commandLink action="#{evolucionrendimientoController.prepareList}" value="#{bundle.ViewEvolucionrendimientoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEvolucionrendimientoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

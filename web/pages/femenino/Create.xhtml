@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFemeninoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_idMasculinoEstadoBueno}" for="idMasculinoEstadoBueno" />
+                    <h:inputText id="idMasculinoEstadoBueno" value="#{femeninoController.selected.idMasculinoEstadoBueno}" title="#{bundle.CreateFemeninoTitle_idMasculinoEstadoBueno}" required="true" requiredMessage="#{bundle.CreateFemeninoRequiredMessage_idMasculinoEstadoBueno}"/>
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_prueba}" for="prueba" />
+                    <h:inputText id="prueba" value="#{femeninoController.selected.prueba}" title="#{bundle.CreateFemeninoTitle_prueba}" />
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_puntajeMuyBueno}" for="puntajeMuyBueno" />
+                    <h:inputText id="puntajeMuyBueno" value="#{femeninoController.selected.puntajeMuyBueno}" title="#{bundle.CreateFemeninoTitle_puntajeMuyBueno}" />
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_puntajeBueno}" for="puntajeBueno" />
+                    <h:inputText id="puntajeBueno" value="#{femeninoController.selected.puntajeBueno}" title="#{bundle.CreateFemeninoTitle_puntajeBueno}" />
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_puntajeRegular}" for="puntajeRegular" />
+                    <h:inputText id="puntajeRegular" value="#{femeninoController.selected.puntajeRegular}" title="#{bundle.CreateFemeninoTitle_puntajeRegular}" />
+                    <h:outputLabel value="#{bundle.CreateFemeninoLabel_desdeEdad}" for="desdeEdad" />
+                    <h:inputText id="desdeEdad" value="#{femeninoController.selected.desdeEdad}" title="#{bundle.CreateFemeninoTitle_desdeEdad}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{femeninoController.create}" value="#{bundle.CreateFemeninoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{femeninoController.prepareList}" value="#{bundle.CreateFemeninoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFemeninoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

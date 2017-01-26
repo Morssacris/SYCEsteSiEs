@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePruebafisica_1Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_idpruebaFisica}" for="idpruebaFisica" />
+                    <h:inputText id="idpruebaFisica" value="#{pruebafisica_1Controller.selected.idpruebaFisica}" title="#{bundle.CreatePruebafisica_1Title_idpruebaFisica}" required="true" requiredMessage="#{bundle.CreatePruebafisica_1RequiredMessage_idpruebaFisica}"/>
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_tiempoMetros}" for="tiempoMetros" />
+                    <h:inputText id="tiempoMetros" value="#{pruebafisica_1Controller.selected.tiempoMetros}" title="#{bundle.CreatePruebafisica_1Title_tiempoMetros}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_cantidadAbs}" for="cantidadAbs" />
+                    <h:inputText id="cantidadAbs" value="#{pruebafisica_1Controller.selected.cantidadAbs}" title="#{bundle.CreatePruebafisica_1Title_cantidadAbs}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_cantidadFlexionesCodo}" for="cantidadFlexionesCodo" />
+                    <h:inputText id="cantidadFlexionesCodo" value="#{pruebafisica_1Controller.selected.cantidadFlexionesCodo}" title="#{bundle.CreatePruebafisica_1Title_cantidadFlexionesCodo}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_cantidadBarrar}" for="cantidadBarrar" />
+                    <h:inputText id="cantidadBarrar" value="#{pruebafisica_1Controller.selected.cantidadBarrar}" title="#{bundle.CreatePruebafisica_1Title_cantidadBarrar}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_cantidadSentadilla}" for="cantidadSentadilla" />
+                    <h:inputText id="cantidadSentadilla" value="#{pruebafisica_1Controller.selected.cantidadSentadilla}" title="#{bundle.CreatePruebafisica_1Title_cantidadSentadilla}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_alturaSalto}" for="alturaSalto" />
+                    <h:inputText id="alturaSalto" value="#{pruebafisica_1Controller.selected.alturaSalto}" title="#{bundle.CreatePruebafisica_1Title_alturaSalto}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_puntajefisica}" for="puntajefisica" />
+                    <h:inputText id="puntajefisica" value="#{pruebafisica_1Controller.selected.puntajefisica}" title="#{bundle.CreatePruebafisica_1Title_puntajefisica}" />
+                    <h:outputLabel value="#{bundle.CreatePruebafisica_1Label_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{pruebafisica_1Controller.selected.fecha}" title="#{bundle.CreatePruebafisica_1Title_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pruebafisica_1Controller.create}" value="#{bundle.CreatePruebafisica_1SaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pruebafisica_1Controller.prepareList}" value="#{bundle.CreatePruebafisica_1ShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePruebafisica_1IndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

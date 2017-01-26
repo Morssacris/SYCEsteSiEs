@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFuerzaresistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFuerzaresistenciaEmpty}" rendered="#{fuerzaresistenciaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{fuerzaresistenciaController.items.rowCount > 0}">
+                    <h:outputText value="#{fuerzaresistenciaController.pagination.pageFirstItem + 1}..#{fuerzaresistenciaController.pagination.pageLastItem + 1}/#{fuerzaresistenciaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{fuerzaresistenciaController.previous}" value="#{bundle.Previous} #{fuerzaresistenciaController.pagination.pageSize}" rendered="#{fuerzaresistenciaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{fuerzaresistenciaController.next}" value="#{bundle.Next} #{fuerzaresistenciaController.pagination.pageSize}" rendered="#{fuerzaresistenciaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{fuerzaresistenciaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFuerzaresistenciaTitle_idFuerzaResistencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFuerzaResistencia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFuerzaresistenciaTitle_circuito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.circuito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFuerzaresistenciaTitle_tecnica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tecnica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFuerzaresistenciaTitle_fuerzaidFuerza}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fuerzaidFuerza}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{fuerzaresistenciaController.prepareView}" value="#{bundle.ListFuerzaresistenciaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{fuerzaresistenciaController.prepareEdit}" value="#{bundle.ListFuerzaresistenciaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{fuerzaresistenciaController.destroy}" value="#{bundle.ListFuerzaresistenciaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{fuerzaresistenciaController.prepareCreate}" value="#{bundle.ListFuerzaresistenciaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFuerzaresistenciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

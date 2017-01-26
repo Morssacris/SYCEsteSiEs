@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEvolucionrendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEvolucionrendimientoEmpty}" rendered="#{evolucionrendimientoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{evolucionrendimientoController.items.rowCount > 0}">
+                    <h:outputText value="#{evolucionrendimientoController.pagination.pageFirstItem + 1}..#{evolucionrendimientoController.pagination.pageLastItem + 1}/#{evolucionrendimientoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{evolucionrendimientoController.previous}" value="#{bundle.Previous} #{evolucionrendimientoController.pagination.pageSize}" rendered="#{evolucionrendimientoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{evolucionrendimientoController.next}" value="#{bundle.Next} #{evolucionrendimientoController.pagination.pageSize}" rendered="#{evolucionrendimientoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{evolucionrendimientoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_idEvolucionRendimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEvolucionRendimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionIzAp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionIzAp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDeAp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDeAp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDeBandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDeBandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionIzBandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionIzBandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDobleBandal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDobleBandal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDesplasamientoNerio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDesplasamientoNerio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDesplasamientoFuryo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDesplasamientoFuryo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_evolucionDesplasamientoDolyo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.evolucionDesplasamientoDolyo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_puntajeEvolucion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntajeEvolucion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvolucionrendimientoTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{evolucionrendimientoController.prepareView}" value="#{bundle.ListEvolucionrendimientoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evolucionrendimientoController.prepareEdit}" value="#{bundle.ListEvolucionrendimientoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evolucionrendimientoController.destroy}" value="#{bundle.ListEvolucionrendimientoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{evolucionrendimientoController.prepareCreate}" value="#{bundle.ListEvolucionrendimientoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEvolucionrendimientoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

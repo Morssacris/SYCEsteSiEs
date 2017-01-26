@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEjercicioresistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEjercicioresistenciaLabel_idEjercicioResistencia}" for="idEjercicioResistencia" />
+                    <h:inputText id="idEjercicioResistencia" value="#{ejercicioresistenciaController.selected.idEjercicioResistencia}" title="#{bundle.EditEjercicioresistenciaTitle_idEjercicioResistencia}" required="true" requiredMessage="#{bundle.EditEjercicioresistenciaRequiredMessage_idEjercicioResistencia}"/>
+                    <h:outputLabel value="#{bundle.EditEjercicioresistenciaLabel_ejercicio}" for="ejercicio" />
+                    <h:inputText id="ejercicio" value="#{ejercicioresistenciaController.selected.ejercicio}" title="#{bundle.EditEjercicioresistenciaTitle_ejercicio}" />
+                    <h:outputLabel value="#{bundle.EditEjercicioresistenciaLabel_duracion}" for="duracion" />
+                    <h:inputText id="duracion" value="#{ejercicioresistenciaController.selected.duracion}" title="#{bundle.EditEjercicioresistenciaTitle_duracion}" />
+                    <h:outputLabel value="#{bundle.EditEjercicioresistenciaLabel_intervenccionPreidIntervenccionPre}" for="intervenccionPreidIntervenccionPre" />
+                    <h:selectOneMenu id="intervenccionPreidIntervenccionPre" value="#{ejercicioresistenciaController.selected.intervenccionPreidIntervenccionPre}" title="#{bundle.EditEjercicioresistenciaTitle_intervenccionPreidIntervenccionPre}" required="true" requiredMessage="#{bundle.EditEjercicioresistenciaRequiredMessage_intervenccionPreidIntervenccionPre}">
+                        <f:selectItems value="#{intervenccionpreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{ejercicioresistenciaController.update}" value="#{bundle.EditEjercicioresistenciaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEjercicioresistenciaViewLink}"/>
+                <br />
+                <h:commandLink action="#{ejercicioresistenciaController.prepareList}" value="#{bundle.EditEjercicioresistenciaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEjercicioresistenciaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

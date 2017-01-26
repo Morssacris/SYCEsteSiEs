@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTipoDeCargaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTipoDeCargaLabel_idTipodeCarga}" for="idTipodeCarga" />
+                    <h:inputText id="idTipodeCarga" value="#{tipoDeCargaController.selected.idTipodeCarga}" title="#{bundle.EditTipoDeCargaTitle_idTipodeCarga}" required="true" requiredMessage="#{bundle.EditTipoDeCargaRequiredMessage_idTipodeCarga}"/>
+                    <h:outputLabel value="#{bundle.EditTipoDeCargaLabel_tipodecarga}" for="tipodecarga" />
+                    <h:inputText id="tipodecarga" value="#{tipoDeCargaController.selected.tipodecarga}" title="#{bundle.EditTipoDeCargaTitle_tipodecarga}" />
+                    <h:outputLabel value="#{bundle.EditTipoDeCargaLabel_intervenccionPreidIntervenccionPre}" for="intervenccionPreidIntervenccionPre" />
+                    <h:inputText id="intervenccionPreidIntervenccionPre" value="#{tipoDeCargaController.selected.intervenccionPreidIntervenccionPre}" title="#{bundle.EditTipoDeCargaTitle_intervenccionPreidIntervenccionPre}" required="true" requiredMessage="#{bundle.EditTipoDeCargaRequiredMessage_intervenccionPreidIntervenccionPre}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tipoDeCargaController.update}" value="#{bundle.EditTipoDeCargaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTipoDeCargaViewLink}"/>
+                <br />
+                <h:commandLink action="#{tipoDeCargaController.prepareList}" value="#{bundle.EditTipoDeCargaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTipoDeCargaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

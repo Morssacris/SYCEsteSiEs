@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEstandarrendimientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEstandarrendimientoLabel_idEstandarRendimiento}" for="idEstandarRendimiento" />
+                    <h:inputText id="idEstandarRendimiento" value="#{estandarrendimientoController.selected.idEstandarRendimiento}" title="#{bundle.CreateEstandarrendimientoTitle_idEstandarRendimiento}" required="true" requiredMessage="#{bundle.CreateEstandarrendimientoRequiredMessage_idEstandarRendimiento}"/>
+                    <h:outputLabel value="#{bundle.CreateEstandarrendimientoLabel_femeninoidMasculinoEstadoBueno}" for="femeninoidMasculinoEstadoBueno" />
+                    <h:inputText id="femeninoidMasculinoEstadoBueno" value="#{estandarrendimientoController.selected.femeninoidMasculinoEstadoBueno}" title="#{bundle.CreateEstandarrendimientoTitle_femeninoidMasculinoEstadoBueno}" required="true" requiredMessage="#{bundle.CreateEstandarrendimientoRequiredMessage_femeninoidMasculinoEstadoBueno}"/>
+                    <h:outputLabel value="#{bundle.CreateEstandarrendimientoLabel_masculinoidMasculinoEstadoBueno}" for="masculinoidMasculinoEstadoBueno" />
+                    <h:inputText id="masculinoidMasculinoEstadoBueno" value="#{estandarrendimientoController.selected.masculinoidMasculinoEstadoBueno}" title="#{bundle.CreateEstandarrendimientoTitle_masculinoidMasculinoEstadoBueno}" required="true" requiredMessage="#{bundle.CreateEstandarrendimientoRequiredMessage_masculinoidMasculinoEstadoBueno}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estandarrendimientoController.create}" value="#{bundle.CreateEstandarrendimientoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{estandarrendimientoController.prepareList}" value="#{bundle.CreateEstandarrendimientoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEstandarrendimientoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

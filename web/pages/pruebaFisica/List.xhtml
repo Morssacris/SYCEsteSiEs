@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPruebaFisicaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPruebaFisicaEmpty}" rendered="#{pruebaFisicaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pruebaFisicaController.items.rowCount > 0}">
+                    <h:outputText value="#{pruebaFisicaController.pagination.pageFirstItem + 1}..#{pruebaFisicaController.pagination.pageLastItem + 1}/#{pruebaFisicaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pruebaFisicaController.previous}" value="#{bundle.Previous} #{pruebaFisicaController.pagination.pageSize}" rendered="#{pruebaFisicaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pruebaFisicaController.next}" value="#{bundle.Next} #{pruebaFisicaController.pagination.pageSize}" rendered="#{pruebaFisicaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pruebaFisicaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_idpruebaFisica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpruebaFisica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_tiempoMetros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiempoMetros}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_cantidadAbs}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadAbs}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_cantidadFlexionesCodo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadFlexionesCodo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_cantidadBarrar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadBarrar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_cantidadSentadilla}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadSentadilla}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_alturaSalto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alturaSalto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_puntajefisica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntajefisica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPruebaFisicaTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pruebaFisicaController.prepareView}" value="#{bundle.ListPruebaFisicaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pruebaFisicaController.prepareEdit}" value="#{bundle.ListPruebaFisicaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pruebaFisicaController.destroy}" value="#{bundle.ListPruebaFisicaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pruebaFisicaController.prepareCreate}" value="#{bundle.ListPruebaFisicaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPruebaFisicaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

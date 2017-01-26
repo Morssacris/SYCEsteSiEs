@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRendimientoHasDeportistaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRendimientoHasDeportistaLabel_rendimientoHasDeportistaPK_rendimientoIdrendimiento}" for="rendimientoHasDeportistaPK_rendimientoIdrendimiento" />
+                    <h:inputText id="rendimientoHasDeportistaPK_rendimientoIdrendimiento" value="#{rendimientoHasDeportistaController.selected.rendimientoHasDeportistaPK.rendimientoIdrendimiento}" title="#{bundle.CreateRendimientoHasDeportistaTitle_rendimientoHasDeportistaPK_rendimientoIdrendimiento}" required="true" requiredMessage="#{bundle.CreateRendimientoHasDeportistaRequiredMessage_rendimientoHasDeportistaPK_rendimientoIdrendimiento}"/>
+                    <h:outputLabel value="#{bundle.CreateRendimientoHasDeportistaLabel_rendimientoHasDeportistaPK_deportistaidDeportista}" for="rendimientoHasDeportistaPK_deportistaidDeportista" />
+                    <h:inputText id="rendimientoHasDeportistaPK_deportistaidDeportista" value="#{rendimientoHasDeportistaController.selected.rendimientoHasDeportistaPK.deportistaidDeportista}" title="#{bundle.CreateRendimientoHasDeportistaTitle_rendimientoHasDeportistaPK_deportistaidDeportista}" required="true" requiredMessage="#{bundle.CreateRendimientoHasDeportistaRequiredMessage_rendimientoHasDeportistaPK_deportistaidDeportista}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rendimientoHasDeportistaController.create}" value="#{bundle.CreateRendimientoHasDeportistaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{rendimientoHasDeportistaController.prepareList}" value="#{bundle.CreateRendimientoHasDeportistaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRendimientoHasDeportistaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

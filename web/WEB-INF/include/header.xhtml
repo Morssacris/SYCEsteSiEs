@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <b:container>
+        <b:navBar brand="SYC" brandHref="#" style="margin-right: 25px">  
+                <b:image library="img" name="fudam.png" width="80px" tooltip="SYC Sistema de Informacion"/>
+<!--                                <b:navbarLinks>
+                                    
+                                 
+                                    <b:dropMenu value="Dropdown" iconAwesome="birthday-cake">
+                                        <b:navLink value="Action" href="#"></b:navLink>
+                                        <b:navLink value="Another action" href="#"></b:navLink>
+                                        <b:navLink value="Something else here" href="#"></b:navLink>
+                                        <b:navLink></b:navLink>
+                                        <b:navLink header="Nav header"></b:navLink>
+                                        <b:navLink value="Separated link" href="#"></b:navLink>
+                                        <b:dropMenu value="Nested submenu" iconAwesome="birthday-cake" iconAlign="right">
+                                            <b:navLink value="You can nest menus" href="#"></b:navLink>
+                                            <b:dropMenu value="Nested sub-submenu">
+                                                <b:navLink value="... as deep as ..." href="#"></b:navLink>
+                                                <b:dropMenu value="Nested sub-sub-submenu">
+                                                    <b:navLink value="... you want!" href="#"></b:navLink>
+                                                </b:dropMenu>
+                                            </b:dropMenu>
+                
+                                        </b:dropMenu>
+                                        <b:navLink value="One more separated link" href="#"></b:navLink>
+                                    </b:dropMenu>
+                                </b:navbarLinks>-->
+
+                <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+               
+                <b:navbarLinks pull="right" styleClass="hidden-xs" style="margin-right: 40px">
+                
+                   
+                <b:dropMenu value="Opciones">
+                        <b:navLink value="Cerrar Sesión" href="#" onclick="$('.modalPseudoClass').modal();return false;"></b:navLink>
+                        <b:navLink></b:navLink>
+                        <b:navLink value="Modificar Perfil" href="#"></b:navLink>                    
+                    </b:dropMenu>
+               
+                </b:navbarLinks>
+           
+            </b:navBar> 
+             <b:modal id="amodal" title="¿Esta seguro que desea salir?" styleClass="modalPseudoClass"
+                 closable="false" close-on-escape="false" backdrop="false">
+            <b:form>
+
+                <b:panelGrid columns="2">
+
+
+
+                    <b:listLinks>
+                    
+                        <b:navLink value="Salir"  outcome="/index.xhtml" style="animation: linear"/>
+                    <b:commandButton value="Cancelar" look="danger" actionListener="close"/>
+                    </b:listLinks>
+                </b:panelGrid>
+            </b:form>
+            <f:facet name="footer">
+                <h:messages/>
+
+            </f:facet>
+
+        </b:modal>
+    </b:container>
+</html>
+

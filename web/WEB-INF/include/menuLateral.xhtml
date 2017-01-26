@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+
+
+    <div class="sidebar">
+        <b:column span="3" class="sidebar">
+
+            <b:listLinks>
+
+
+
+
+                <b:panel title="Inf. Derportistas" look="success">
+
+
+
+                    <b:navLink></b:navLink>
+                    <b:navLink outcome="/pages/usuarios/Create.xhtml" value="Nuevo Deportista"
+                               icon="glyphicon-user" iconAlign="right"/>                  
+                    <b:navLink></b:navLink>
+
+                    <b:navLink value="Listar Usuarios" outcome="/pages/usuarios/List.xhtml" 
+                               icon="glyphicon-wrench" icon-align="right"></b:navLink>
+                    <b:navLink></b:navLink>
+                    
+
+                </b:panel>
+
+                <b:navLink></b:navLink>
+                <b:panel title="Inf. Entrenamientos" look="danger">
+
+
+
+                    <b:navLink></b:navLink>
+                    <b:navLink outcome="/pages/entrenamientos/Create.xhtml" value="Nuevo Entrenamiento"
+                               icon="user" iconAlign="right"/>                  
+                    <b:navLink></b:navLink>
+
+                    <b:navLink value="Listar Entrenamientos" outcome="/pages/entrenamientos/List.xhtml" 
+                               icon="glyphicon-flash" icon-align="right"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink></b:navLink>
+
+                    <b:navLink value="Editar Entrenamientos" outcome="/pages/entrenamientos/Edit.xhtml" 
+                               icon="glyphicon-flash" icon-align="right"></b:navLink>
+                    <b:navLink></b:navLink>
+
+                    <b:navLink></b:navLink>
+
+                    <b:navLink value="Ver Entrenamientos" outcome="/pages/entrenamientos/View.xhtml" 
+                               icon="glyphicon-flash" icon-align="right"></b:navLink>
+                    <b:navLink></b:navLink>
+
+                    <b:navLink></b:navLink>
+
+                </b:panel>
+                <b:panel title="Inf. Pruebas">
+
+
+
+                    <b:navLink></b:navLink>
+                    <b:navLink outcome="/pages/pruebaFisica/Create.xhtml" value="Pruebas Fisicas"
+                               icon="user" iconAlign="right"/>                  
+                    <b:navLink></b:navLink>
+
+                    <b:navLink value="Pruebas de Rendimiento" outcome="/pages/pruebaRendimiento/Create.xhtml" 
+                               icon="glyphicon-flash" icon-align="right"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink></b:navLink>
+                    
+
+
+                </b:panel>
+                
+
+
+
+                
+                <b:navLink></b:navLink>
+
+<!--             <b:navCommandLink value="AJAX actionListener" actionListener="#{messagesBean.info}"
+           icon="tag" iconAlign="right" update="@form"/>-->
+
+
+                <b:messages />
+
+            </b:listLinks>
+
+        </b:column>
+    </div>
+
+
+</html>
+
